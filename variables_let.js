@@ -3,7 +3,7 @@ let ES6. Son variables accesibles desde todo el script
 o en el ámbito de los bloques {}. No permite redeclarar variables.
 */
 let centro='cifpcarlos3';
-//let nombre='raul' -> error
+//let centro='raul' -> error
 
 if (true){
     let profe='raul';
