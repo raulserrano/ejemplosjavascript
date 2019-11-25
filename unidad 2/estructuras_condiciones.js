@@ -20,7 +20,7 @@ if ( edad >= 18 ){
 }
 
 let letra='A';
-switch (true) {
+switch (letra) {
     case 'A': console.log('switch dice: la letra es A')
         break;
     case 'B': console.log('switch dice: la letra es B')
