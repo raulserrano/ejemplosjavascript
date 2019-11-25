@@ -26,10 +26,14 @@
         }
 
         let p1= new Fpersona('raul');
-        console.log(p1.nombre);
+        p1.cumplir()
 
-        let p2 = new Cpersona('raul2')
-        console.log(p2.nombre)
+        console.log(p1.nombre +' tiene: '+p1.edad);
+
+        let p2 = new Cpersona('raul2');
+        p2.cumplir();
+        p2.cumplir();
+        console.log(p2.nombre +' tiene: '+p2.edad)
     
     </script>
 </head>
