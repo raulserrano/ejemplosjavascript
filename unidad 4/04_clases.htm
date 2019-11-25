@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CLASES</title>
+    <script>
+        function Fpersona(nombre){
+            this.nombre=nombre;
+            this.edad=0;
+            this.cumplir=function(){
+                this.edad++;
+            }
+        }
+
+        class Cpersona{
+            constructor(nombre){
+                this.nombre=nombre;
+                this.edad=0;
+            }
+            cumplir(){
+                this.edad++;
+            }
+
+        }
+
+        let p1= new Fpersona('raul');
+        console.log(p1.nombre);
+
+        let p2 = new Cpersona('raul2')
+        console.log(p2.nombre)
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

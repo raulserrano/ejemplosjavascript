@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,12 +42,12 @@
         //de cada uno de los bucles.
 
         //Creamos un array grande
-        for (let i=0;i<100;i++) arr.push(i);
+        for (let i=0;i<500000;i++) arr.push(i);
 
         //Calculamos el tiempo en recorrerlo
         let time1=new Date();
         for ( let i=0 ; i<arr.length ; i++){
-            document.write(arr[i]+'<br>')
+          //  document.write(arr[i]+'<br>')
         }
         let time2=new Date();
 
@@ -55,7 +55,7 @@
  //Calculamos el tiempo en recorrerlo for in
  time1=new Date();
         for ( let i in arr){
-            document.write(arr[i]+'<br>')
+           // document.write(arr[i]+'<br>')
         }
         time2=new Date();
 
@@ -63,16 +63,11 @@
         //Calculamos el tiempo en recorrerlo for of
         time1=new Date();
         for ( let i of arr){
-            document.write(i+'<br>')
+           // document.write(i+'<br>')
         }
         time2=new Date();
 
         document.write('Tiempo for of: '+(time1-time2))
-
-        
-
-
-
 
     
     </script>
