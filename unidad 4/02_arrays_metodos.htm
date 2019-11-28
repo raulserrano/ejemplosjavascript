@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Diferentes métodos de array</title>
     <script>
-        let arr1 = ['carmen','juan','pedro','luis','ana'];
+
+        let arr1 = ['carmen','juan','pedro','luis','ana','adolfo'];
         let arr2 = [
             {'manzanas':'5'},
             {'peras':'8'},
             {'platanos':'7'}
         ];
+        let resultado;
+
+
+        // find: Devuelve el primer elemento encontrado.  
+
+        resultado = arr1.find(function(elemento){return elemento=='carmen'});
+        console.log(resultado); //carmen
+
+        resultado = arr1.find((elemento)=>elemento.charAt(0)=='a'); //es6 notación flecha
+        console.log(resultado) //ana
+
+        // filter: Devuelve el conjunto de elementos encontrados.
+
+        resultado = arr1.filter((elemento)=>elemento.charAt(0)=='a'); 
+        console.log(resultado) // ['ana','adolfo']
+
+         // map: Aplica la funcción 
+
+        resultado.ma
+
 
 
     
