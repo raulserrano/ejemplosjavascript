@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplos capturas eventos formularios</title>
+    <style>
+        #contenedor{
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',iniciar);
+
+        function iniciar(){
+            //Creamos una funcion que muestra el atributo valor
+            //de el elemento que recibe el evento
+            function fvalor(e){
+                alert(e.target.value)
+            }
+
+            //Capturamos el evento blur de un campo de texto 
+            //y mostramos su valor.
+            let nombre = document.getElementById('nombre');
+            nombre.addEventListener('blur',fvalor)
+
+            //Capturamos el evento change de un select
+            //y mostramos su valor
+            let prov = document.getElementById('prov');
+            prov.addEventListener('change',fvalor)
+        }
+        
+    </script>
+
+</head>
+<body>
+    <div id="contenedor">
+
+        <fieldset><legend>Caturamos evento blur y mostramos su valor</legend>
+        <label for="nombre">Nombre:</label>
+        <input id='nombre' type="text">
+         </fieldset>
+
+         <fieldset><legend>Caturamos evento change y mostramos su valor</legend>
+            <label for="nombre">Provincia:</label>
+            <select id="prov">
+                <option value="MU">MURCIA</option>
+                <option value="MA">ANDALUCIA</option>
+                <option value="AN">LUGO</option>
+                <option value="GA">GALICIA</option>
+            </select>    
+             </fieldset>
+        
+
+    </div>
+    
+</body>
+</html>

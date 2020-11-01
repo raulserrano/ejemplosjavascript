@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CARGAR DATOS JSON MEDIANTE AJAX</title>
+
+
+
+<script>
+
+let consulta;
+
+
+
+window.addEventListener('load',iniciar);
+function iniciar(){
+
+consulta = new XMLHttpRequest();
+consulta.onreadystatechange = procesarrespuesta;
+consulta.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+consulta.send(null); 
+}
+
+
+
+
+
+function procesarrespuesta() { 
+	if (consulta.readyState == 4 && consulta.status == 200)  
+		var datosjson = JSON.parse(consulta.responseText); 
+       
+		escribirdatos(datosjson)
+    
+    
+} 
+
+
+function escribirdatos(datosjson){
+  contenidotabla.innerHTML="";
+  console.dir(datosjson)
+	for (var i in datosjson){
+             
+                var fila = document.createElement('tr');
+                contenidotabla.appendChild(fila);
+               
+                var columna = document.createElement('td');
+                columna.innerHTML=datosjson[i].name;
+                fila.appendChild(columna);
+        
+                var columna = document.createElement('td');
+                columna.innerHTML=datosjson[i].address.street;
+                fila.appendChild(columna);
+        
+                var columna = document.createElement('td');
+                columna.innerHTML=datosjson[i].address.city;
+                fila.appendChild(columna);
+
+              //fin if
+        
+              //  console.log(datosjson[i].address.street)
+              //   console.log(datosjson[i].address.city)
+               
+         
+	}//fin for
+}
+</script>
+</head>
+
+<body>
+<div id="contenido">
+
+
+<section id="seccion">
+
+	
+
+<table>
+
+    
+    <thead>
+        <tr><td>Nombre</td><td>Calle</td><td>Ciudad</td></tr>
+    </thead>
+    <tbody id="contenidotabla">
+        
+    </tbody>
+ </table>   
+   
+    
+    
+
+
+</section>
+</div>
+</body>
+</html>
