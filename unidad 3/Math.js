@@ -1,6 +1,6 @@
 
 /*
-
+ 
 El objeto Math nos proporciona propiedades y métodos "estáticos", para 
 trabajar con números
 

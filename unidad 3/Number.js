@@ -1,5 +1,5 @@
 /* 
-
+ 
    Podemos utilizar una variable que contenga un tipo de datos primitivo (principales:number, string, boolean),
    como un objetos, en el sentido de que podemos utilizar métodos y propiedades del tipo de objeto que representan,
    no en el sentido de poder añadir otros atributos y métodos.
