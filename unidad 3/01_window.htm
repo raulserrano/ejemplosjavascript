@@ -1,25 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>OBJETO WINDOW</title>
     <script>
-    function prueba(){
-        document.writeln('linea escrita desde set interval<br>');
-    }
 
-    /*Objetos y métodos de windows, además de los que ya hemos utilizado
-    alert, prompt hay otros que pueden ser de utilidad*/
+        /* 
+            window es el objeto global cuando ejecutamos javascript en un navegador web,
+            siempre lo tendremos disponible, y por tanto sus métodos y atributos. No hace
+            falta que lo nombremos expresamente a la hora de acceder a sus métodos o atributos.
 
-    //setInterval(prueba,1000)
+            De entre sus atributos destacamos el objeto document, ya que es que que tiene
+            todo el contenido de la aplicación, lo estudiaremos con detenimiento posteriormente
+            aunque ya hemos utilizado en ejercicios uno de sus métodos document.write.
+        */
 
-    setTimeout(prueba,1000)
+        //  Veamos algunos métodos de window.
 
-    //location.href="http://www.cifpcarlos3.es";
+        //  Mostrar una ventana con información
+            window.alert('EJEMPLO DE USO DE ALERT');
 
-    document.writeln('Lenguaje del navegador'+navigator.language+'\n')
+        //  Obtener información del usuario, devuelve la cadena introducida.
+            let nombre = prompt('Introduzca su nombre');
+
+        //  Solicitar confirmación o calcelar, devuelve true o false.
+            let respuesta = confirm('¿Está de acuerdo');
+        
+        //  setInterval, ejecuta una función cada x milisegundos
+
+            function prueba(){
+                fecha = new Date()
+                document.writeln(fecha.getSeconds()+'<br>');
+            }
+
+        //   setInterval(prueba,1000)
+
+        //  clearInterval, ejecuta una función transcurridos x milisegundos.
+
+            clearInterval(prueba,1000)
+
+        // open, abrir una nueva ventana o pestaña (ya desaconsejado)
+
+            let nuevaVentana = window.open("nueva.html","nueva","height=800,width=600");
+
+        // ATRIBUTOS: location, history, navigator
+
+        //location.href="http://www.cifpcarlos3.es";
+
+        document.write('<br>Protocolo de acceso al archivo:' + location.protocol)
+
+        document.writeln('<br>Lenguaje del navegador'+navigator.languages+'\n');
+
+        console.log(history);
+
+
+
+    
+
+    
+
+    //
+
+ 
+
+   
+
+    
     </script>
 </head>
 <body>
