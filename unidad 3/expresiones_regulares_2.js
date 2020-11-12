@@ -76,7 +76,7 @@
 
     */
 
-    //nota, si en alguna expresión regular queremos burcar alguno de los caracteres
+    //nota, si en alguna expresión regular queremos buscar alguno de los caracteres
     //especiales utilizados para crearlas, utilizaremos el operador de escapo \
 
     // Ejercicio propuesto. Describe un patrón para comprobar si una dirección
