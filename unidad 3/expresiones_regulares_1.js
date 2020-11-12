@@ -2,7 +2,7 @@
 Expresiones regulares
 ----------------------
 
-Son patrones que describen la como tiene que ser una cadena.
+Son patrones que describen como tiene que ser una cadena.
 
 Ejemplo: "Que la cadena empiece por a"
 
