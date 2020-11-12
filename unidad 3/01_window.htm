@@ -35,23 +35,25 @@
                 document.writeln(fecha.getSeconds()+'<br>');
             }
 
-        //   setInterval(prueba,1000)
+            setInterval(prueba,1000)
 
-        //  clearInterval, ejecuta una función transcurridos x milisegundos.
+         //   setTimeout, ejecuta una función transcurridos x milisegundos.
 
-            clearInterval(prueba,1000)
+            setTimeout(prueba,1000)
 
         // open, abrir una nueva ventana o pestaña (ya desaconsejado)
 
             let nuevaVentana = window.open("nueva.html","nueva","height=800,width=600");
 
-        // ATRIBUTOS: location, history, navigator
+        // ATRIBUTOS: location, history, navigator, localStorage
 
         //location.href="http://www.cifpcarlos3.es";
 
         document.write('<br>Protocolo de acceso al archivo:' + location.protocol)
 
         document.writeln('<br>Lenguaje del navegador'+navigator.languages+'\n');
+        
+       // navigator.geolocation.getCurrentPosition(success)
 
         console.log(history);
 
