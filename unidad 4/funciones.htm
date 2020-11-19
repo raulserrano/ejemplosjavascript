@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones</title>
+
+    <script>
+        //Permiten declarar bloques de instrucciones.
+
+
+        //Puedo usar una función antes(y después) de su declaración
+        fprueba();
+
+        //Declaración de funciones
+        function fprueba(){
+            console.log('Imprimiendo desde fprueba')
+        }
+
+        //Los parámetros primitivos se pasan por valor (ojo, los objetos por referencia)
+
+        let a=1;
+        let b=2;
+        
+        function fparametros( a , b ){
+           
+            console.log( a + b );
+            a=20;
+            b=30;
+        }
+        console.log('Valor de a:' + a + ' Valor de b:' +b)// 1 2
+        fparametros( a, b );//3
+        console.log('Valor de a:' + a + ' Valor de b:' +b)// ??
+
+        //Podemos asignar valores por defecto a los parámetros en caso de que
+        //no se pasen
+        
+        function fdefecto( a , b=2 ){      
+            console.log( a + b );
+        }
+       
+        fdefecto(a);//3
+
+        //Podemos asignar la función a una variable.
+        //Aunque en este caso la llamada tiene que ser posterior a 
+        //la declaración.
+
+        let fvar = function(){console.log('Función en variable')};
+        fvar();
+
+        //Declarar funciones con el operador flecha, hay que 
+        //asignarlas a variables
+        
+        let flecha = ()=>{console.log('Función flecha')};
+        flecha();
+
+        //Funciones como parámetro de otra función:
+
+        function fcomoparametro(){console.log('parámetro recibido')}
+
+        //1. -Pasando el nombre a la función (o de la variable que la contiene)
+        setTimeout(fcomoparametro,1000);
+
+        // 2. Función anónima, pasando la declaración de la función
+        setTimeout( function(){console.log('Función a anónima')} ,1000);
+
+        setTimeout( ()=>console.log('Función a anónima') ,1000);
+
+        //Devolvamos valores con la sentencia return
+
+        function fdevuelve (){
+            let nom = prompt('Introduce tu nombre');
+            return nom;
+        }
+
+        console.log(fdevuelve());
+
+
+        
+
+
+       
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
