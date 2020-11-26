@@ -27,20 +27,38 @@
         /* Recorrer Arrays */
 
         //for con la condición length
-        for ( let i=0 ; i<arr.length ; i++){
+        document.write('<h2>Bucle for</h2>')
+        for ( let i=0 ; i<arr.length ; i++){   
             document.write(arr[i])
         }
         
         //for of recorre los valores
+        document.write('<h2>Bucle for of</h2>')
         for ( let i of arr){
             document.write(i)
 
         }
         //for in recorre los indices
+        document.write('<h2>Bucle for in</h2>')
         for ( let i in arr){
             document.write(arr[i])
-
         }
+
+        //Recorrer array con forEach
+
+        document.write('<h2>Bucle forEach</h2>')
+        arr.forEach((i)=>document.write(i));
+
+        //Eliminar/añadir elementos intermedios
+        //arr.splice(inicio[, num_elem_a_borrar, inserta_elem1, ..., inserta_elemN])
+
+        arr.splice(1,1) //Elimina la posición 1
+        console.log(arr);[2,6]
+        arr.splice(1,0,4,5);//¿Que hace?
+        cosnole.log(arr)
+
+       
+        
 
         //Vamos a crear un array grande para comprobar el rendimiento
         //de cada uno de los bucles.
@@ -55,7 +73,7 @@
         }
         let time2=new Date();
 
-        document.write('Tiempo for: '+(time1-time2))
+        document.write('<br>Tiempo for: '+(time1-time2))
  //Calculamos el tiempo en recorrerlo for in
  time1=new Date();
         for ( let i in arr){
@@ -63,7 +81,7 @@
         }
         time2=new Date();
 
-        document.write('Tiempo for in: '+(time1-time2))
+        document.write('<br>Tiempo for in: '+(time1-time2))
         //Calculamos el tiempo en recorrerlo for of
         time1=new Date();
         for ( let i of arr){
@@ -71,7 +89,7 @@
         }
         time2=new Date();
 
-        document.write('Tiempo for of: '+(time1-time2))
+        document.write('<br>Tiempo for of: '+(time1-time2))
 
     
     </script>
@@ -80,3 +98,4 @@
     
 </body>
 </html>
+
