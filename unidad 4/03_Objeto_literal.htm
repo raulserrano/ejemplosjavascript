@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración de objetos literales</title>
+    <script>
+        //Un objeto literal será un conjunto de pares tipo atributo:valor
+        let persona = {
+            nombre:'Jose',
+            apellido:'Perez',
+            edad:5
+        }
+
+        console.log(persona);//{nombre: "Jose", apellido: "Perez", edad: 5}
+        persona.edad++;
+        console.log(persona);//{nombre: "Jose", apellido: "Perez", edad: 6}
+
+        //Los atributos pueden ser de cualquier naturaleza
+        let curso = {
+            nombre:'2DAW',
+            alumnos:['Sergio','Jose','Ana','Maria']
+        }
+
+        console.log(curso);//{nombre: "2DAW", alumnos: Array(4)}
+
+        //En definitiva podemos ver los objetos literales como un conjunto
+        //de variables asociado un espacio de nombres.
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
