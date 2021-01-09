@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRODUCCIÓN A LOS EVENTOS</title>
+    <style>
+        .cuadrado {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .rojo {
+            background-color: red;
+        }
+        .azul {
+            background-color: blue;
+        }
+    </style>
+    </head>
+    <body>
+    <script>
+        // Creo un elemento para los ejemplos.
+        let cuadrado1 = document.createElement('div');
+        document.body.append(cuadrado1);
+        cuadrado1.append('CUADRADO 1');
+        cuadrado1.classList.add('rojo','cuadrado');
+
+
+        // Los eventos son "cosas que ocurren", durante la ejecución de una aplicación web
+
+        //Veremos que eventos de ratón, teclado,.. haremos los primeros ejemplos con 
+        // el eveto 'click' de ratón
+
+        // Para poder reaccionar a eventos tenemos que "capturar" el evento
+        // y asignar una función para tratarlo
+
+        // Existen tres formas de capturar eventos, las mostramos de más antigua
+        // a más actual, ésta última es la que usaremos nosotros
+
+        // Las más antigua ni la vamos a probar, es capturando el evento
+        // con un atributo de la etiqueta html
+        // <div id="cuadrado2" onclick="alert('CUADRADO 2')">CUADRADO 2</div>
+
+        // La segunda es usar una propiedad del elemento DOM
+
+        
+        cuadrado1.onclick = function(){
+            alert('CUADRADO 1');
+        }
+        // Tambien podemos eliminarlo
+        cuadrado1.onclick = null;
+
+        // La tercera, que es la que usaremos nosotros es mediante el métido
+        // addEventListener
+
+        cuadrado1.addEventListener('click',function(){
+            alert('addEventListener en cuadrado1')
+        })
+
+        // Podemos elimiarlo con removeEventListener, aunque en este caso 
+        // tendremos que usar los nombres de la función para asignar y eliminar.
+
+        // Dentro del código de la función la palabra reservada this
+        // hace referencia al elemento que he generado el evento.
+
+        cuadrado1.addEventListener('click', function(){
+            alert(this.innerText); //¿Por qué muestra alert 2 veces?
+        })                         // Esta es una ventaja respecto a las anteriores formas
+
+        
+        //OBJETO EVENT
+
+        // A veces necesitaremos obtener información del sobre el propi evento
+        // Ejemplo: ¿En que coordenadas ha hecho click?
+        // Ponemos un parámetro a la función que captura el evento (usualmente e o event)
+        // y éste parámetro contiene la información dentro de la función.
+
+        // Creo un nuevo elemento para los ejemplos.
+        let cuadrado2 = document.createElement('div');
+        document.body.append(cuadrado2);
+        cuadrado2.append('CUADRADO 2');
+        cuadrado2.classList.add('azul','cuadrado');
+
+        cuadrado2.addEventListener('click',function(e){
+            console.log(e);//Podemos ver toda la información
+            alert('Coordenadas: '+e.clientX + ' , '+e.clientY);
+            // Las propiedades del evento pueden ser particulares de
+            // ese tipo de evento o  genéricas
+            alert('Contenido del elemento: '+event.target.innerText);
+        })
+
+
+
+    </script
+
+    
+</body>
+</html>
