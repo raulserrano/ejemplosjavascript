@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARBOL DOM</title>
+</head>
+<body>
+    <h1>titulo del ejemplo DOM</h1>
+    <div id='bloque1'>
+        Bloque de prueba para el DOM
+        <p id='t1'>Texto 1</p>
+        <p id='t2'>Texto 2</p>
+    </div>
+    <script>
+         // Una vez cargada la página en memoria tendremos un árbol de objetos
+         // accesibles desde js, al cual podremos modificar sus nodos, añadir
+         // nuevo o eliminar existentes
+
+         // El nodo raiz del árbol es document, y podremos acceder a todos 
+         // los elementos a través de document.body
+
+         // Existen diferentes tipos de nodos, siendo los más importantes los 
+         // de tipo elemento (se corresponden con etiquetas HTML), así como los
+         // de tipo texto que se generan con el contenido textual de los elementos
+
+         // Llamaremos nodos hijos a los descencientes directos (Ej. t1 de bloque1)
+
+         // Veamos diferentes maneras de acceder a elementos del DOM:
+
+         // chilNodes: Propiedad de un elemento que con tiene todos los nodos hijos
+
+         console.log('-childNodes: ')
+         console.log(document.body.childNodes)//Observar que incluso "intros" o espacios
+                                              //generan nodos de tipo texto.
+
+         // firstChild y lastChild, acceden al primer y último elemento de childNodes
+         console.log('-firstChild: ')
+         console.log(document.body.firstChild)
+
+        // children: Propiedad que contiene todos los nodos de tipo elemento
+        console.log('-children: ')
+        console.log(document.body.children)
+
+
+        // Los elementos devueltos por propiedades como children o chilNodes
+        // no son exactamente arrays pero podemos acceder a sus elementos como si lo fuera
+        console.log('Recorriendo children')
+        for (let i of document.body.children){
+            console.log(i);
+        }
+
+        // parentNode: Permite acceder al elemento padre
+
+        console.log('-parentNode')
+        console.log(document.body.children[1].parentNode)//¿Quién es?
+         
+
+    </script>
+   
+    
+</body>
+</html>
