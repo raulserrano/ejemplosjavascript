@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROPIEDADES DE LOS ELEMENTOS</title>
+    <style>
+        .rojo{
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo DOM: Propiedades de lo elemetos</h1>
+
+    <div id='bloque1'>
+        Bloque de prueba para el DOM
+        <p id='t1'>Texto 1</p>
+        <p id='t2' class='rojo'>Texto 2</p>
+    </div>
+    <script>
+         // document.getElementById('id') 
+         //     Permite seleccionar elementos individuales si tienen id
+
+         let t1 = document.getElementById('t1');
+         t1.innerText='Texto 1: modificado con getElementsById'
+         if (t1) console.log('elemento encontrado');
+         console.log(t1)
+
+         // El intérprete tambien genera una variable global con los identificadores
+         // pero mejor no utilizarlas, lo consideramos mala práctica.
+
+         // elemento.querySelector(css)
+         //     Permite seleccionar un elemento utilizando selectores css. Si hay más de 
+         //     uno selecciona el primero que lo cumple, dentro del elemto
+
+         let rojo = document.querySelector('.rojo');
+         rojo.innerText = "Texto 2 modificado por querySelector"
+
+         // elemento.querySelectorAll(css)
+         //     Permite seleccionar una colección de elementos utilizando selectores css.
+
+         let parrafos = document.querySelectorAll('p');
+         console.log(parrafos);
+
+         // Podemos acceder y recorrer la colección como si fuera un array
+
+         for (let i of parrafos){
+             console.log('Desde bucle: '+i.innerText);
+         }
+
+         // Disponeos de otros métodos que permiten seleccionar colecciones de elemento,
+         // elemento.getElementsByTagName(tag), elemento.getElementsByClassName(className),
+         // document.getElementsByName(name)
+         // 
+         // Hoy en dia están quedando en desuso por la potencia de querySelectorAll
+
+
+
+    </script>
+   
+    
+</body>
+</html>

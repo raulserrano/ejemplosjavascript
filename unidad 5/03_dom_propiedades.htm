@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELECCIONAR ELEMENTOS</title>
+    <style>
+        .rojo{
+            background-color: red;
+        }
+
+        .azul {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo DOM: Seleccionar elementos</h1>
+
+    <div id='bloque1'>
+        Bloque de prueba para el DOM
+        <p id='t1'>Texto 1</p>
+        <p id='t2' class='rojo'>Texto 2</p>
+    </div>
+    <script>
+         // Todos los nodos de tipo elemento tienen unas propiedades comunes,
+         // y otras propias del elemento (imagen, enlace,...)
+
+         // Propiedades comunes a los nodos de tipo elemento
+         //     tagName, innerHTML, outerHTML, textContent
+
+         // Además de propiedades comunes cada elemento tendrá las suyas propias
+         // imagen: src
+         // enlace: href
+         // input: value
+
+         // Cuando el árbol DOM se genera, las mayoria de los atributos html
+         // se convierten en atributos del DOM
+
+         //let imagen1 = document.getElementById('imagen1');
+         //imagen1.src='imagen2.png';
+
+         // También podemos añadir nuestros propios atributos a los objetos
+         let titulo = document.querySelector('h1');
+         titulo.miproiedad=1;
+         console.dir(titulo)
+
+     
+
+
+
+
+    </script>
+   
+    
+</body>
+</html>
