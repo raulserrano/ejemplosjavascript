@@ -10,28 +10,20 @@
 
 let consulta;
 
-
-
 window.addEventListener('load',iniciar);
-function iniciar(){
 
-consulta = new XMLHttpRequest();
-consulta.onreadystatechange = procesarrespuesta;
-consulta.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
-consulta.send(null); 
+function iniciar(){
+  consulta = new XMLHttpRequest();
+  consulta.onreadystatechange = procesarrespuesta;
+  consulta.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+  consulta.send(null); 
 }
 
-
-
-
-
 function procesarrespuesta() { 
-	if (consulta.readyState == 4 && consulta.status == 200)  
-		var datosjson = JSON.parse(consulta.responseText); 
-       
-		escribirdatos(datosjson)
-    
-    
+	if (consulta.readyState == 4 && consulta.status == 200)  {
+      var datosjson = JSON.parse(consulta.responseText); 
+      escribirdatos(datosjson)
+  }
 } 
 
 
@@ -67,13 +59,8 @@ function escribirdatos(datosjson){
 </head>
 
 <body>
-<div id="contenido">
-
-
-<section id="seccion">
-
-	
-
+  <div id="contenido">
+  <section id="seccion">
 <table>
 
     

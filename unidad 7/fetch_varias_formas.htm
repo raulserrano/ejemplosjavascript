@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de datos on Fetch</title>
+</head>
+<body>
+    <script>
+
+        let url ='https://randomuser.me/api/?results=5'
+        
+        //Con xmlhttpRequest
+        let conexion = new XMLHttpRequest();
+        conexion.open('GET',url)
+        conexion.send();
+        conexion.onreadystatechange = ()=>{
+            if(conexion.readyState == 4 && conexion.status === 200) {
+                    mostrarDatos(JSON.parse(conexion.responseText),"Con XMLHttpRequest ");
+            }
+        }
+
+
+        //Con Fetch -> devuelve una promesa, tratamiento con then/catch
+        fetch(url)
+            .then(respuesta => respuesta.json())
+            .then(datos => mostrarDatos(datos,"Fetch con then/Catch"));
+        
+        //Fetch con async/await
+        //-----------------------
+
+        //Fetch mediante una funcion asincrona
+        async function fconexion(){
+            let respuesta = await fetch(url);
+            let datos = await respuesta.json(); // read response body and parse as JSON
+            mostrarDatos(datos,"Fetch con función asíncrona")
+        }
+
+        fconexion();
+
+        //Fetch envuelto en una función asincrona anonima
+        (async ()=>{
+            let respuesta = await fetch(url);
+            let datos = await respuesta.json(); // read response body and parse as JSON
+            mostrarDatos(datos,"Fetch con función asíncrona anónima")})()
+
+
+        function mostrarDatos(datos,titulo){
+
+                let cabecera = document.createElement("h2");
+                document.body.append(cabecera); 
+                cabecera.innerText=titulo;
+                let lista = document.createElement("ol");
+                document.body.append(lista)
+            console.log(datos)
+                for (let i in datos.results){
+                    let alumno = document.createElement("li");
+                    alumno.innerHTML=datos.results[i].name.first+' '+datos.results[i].name.last;
+                    lista.append(alumno);
+                }
+        }
+    </script>
+</body>
+</html>
