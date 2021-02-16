@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de datos on Fetch con parámetros GET</title>
+</head>
+<body>
+    <input type="text" id="numPersonas">
+    <input type="button" value="Solicitar Datos" id="boton">
+    <div id="contenedor"></div>
+    <script>
+        // En este caso el número de usuarios a solicitar los vamos a obtener
+        // del campo de entrada input, es decir el parámetro GET es variable
+        // y cargaremos los datos al pulsar el botón
+
+        let numPersonas = document.getElementById('numPersonas');
+        let boton = document.getElementById('boton');
+        let contenedor = document.getElementById('contenedor');
+
+        boton.addEventListener('click',solicitarDatos2)
+
+        function solicitarDatos(){
+            let url ='https://randomuser.me/api/?results='+numPersonas.value;
+            fetch(url)
+                .then(respuesta => respuesta.json())
+                .then(datos => mostrarDatos(datos,"FETCH CON PARÁMETRO GET"))
+                .catch(e => alert(e.message));
+        }
+
+        function solicitarDatos2(){
+
+            //Podemos manejar los parámetros a través de un objeto.
+            let parametros = new URLSearchParams();
+            parametros.append('results',numPersonas.value)
+            parametros.append('gender','female')
+        
+            fetch('https://randomuser.me/api/?'+parametros)
+                .then(respuesta => respuesta.json())
+                .then(datos => mostrarDatos(datos,"FETCH CON PARÁMETRO GET y URLSearchParams"))
+                .catch(e => alert(e.message));
+        }
+
+
+       
+        
+      
+        function mostrarDatos(datos,titulo){
+
+                //Inicializamos el contenedor
+                contenedor.innerHTML="";
+
+                //Mostramos una cabecera de datos
+                let cabecera = document.createElement("h2");
+                contenedor.append(cabecera); 
+                cabecera.innerText=titulo;
+
+                //Creamos una lista con los datos.
+                let lista = document.createElement("ol");
+                contenedor.append(lista)
+                console.log(datos)
+
+                //Recorremos los datos recibidos y los añadimos a la lista.
+                for (let i in datos.results){
+                    let alumno = document.createElement("li");
+                    alumno.innerHTML=datos.results[i].name.first+' '+datos.results[i].name.last;
+                    lista.append(alumno);
+                }
+        }
+    </script>
+</body>
+</html>

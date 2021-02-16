@@ -8,6 +8,8 @@
 <body>
     <script>
 
+        // Solicitamos 5 usuarios al servidor https://randomuser.me/api
+
         let url ='https://randomuser.me/api/?results=5'
         
         //Con xmlhttpRequest
@@ -41,7 +43,7 @@
         //Fetch envuelto en una función asincrona anonima
         (async ()=>{
             let respuesta = await fetch(url);
-            let datos = await respuesta.json(); // read response body and parse as JSON
+            let datos = await respuesta.json(); // obtenemos la respuesta en  JSON
             mostrarDatos(datos,"Fetch con función asíncrona anónima")})()
 
 
@@ -52,7 +54,7 @@
                 cabecera.innerText=titulo;
                 let lista = document.createElement("ol");
                 document.body.append(lista)
-            console.log(datos)
+                console.log(datos)
                 for (let i in datos.results){
                     let alumno = document.createElement("li");
                     alumno.innerHTML=datos.results[i].name.first+' '+datos.results[i].name.last;
