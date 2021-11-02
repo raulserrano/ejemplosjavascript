@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERENCIA</title>
+    <script>
+        // Podemos aplicar el mecanismo de herencia para ampliar la funcionalidad de
+        // las clases. Para ello utilizamos la palabra reservada extends
+
+        class Cpersona{
+            constructor(nombre){
+                this.nombre=nombre;
+                this.edad=0;
+            }
+            cumplir(){
+                this.edad++;
+            }
+
+        }
+
+        //Ampliamos un método.
+        class Cempleado extends Cpersona{
+            pagar(){
+                console.log("Pagar el empleado " + this.nombre +" su nómina");
+            }
+        }
+
+        const e1 = new Cempleado('juan')
+        e1.pagar();
+
+        // Para ampliar un atributo creamos un constructor y llamamos al contructor
+        // del padre con la palabra reservada super.
+
+        class Cproveedor extends Cpersona{
+            constructor(nombre,CIF){
+                super(nombre);
+                this.CIF=CIF;
+            }
+        }
+
+        const p1 = new Cproveedor('raul','222222222')
+        console.log(p1);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
