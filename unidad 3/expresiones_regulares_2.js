@@ -48,7 +48,7 @@ let cadena = 'Desarrollo de aplicaciones web 2020';
     patron = /^[0-5]/
     console.log(patron.test(cadena)); //false : ^ No Comienza con número.
 
-    // ^ También dirve para negra dentro de corchetes [^0-5]
+    // ^ También sirve para negar dentro de corchetes [^0-5]
 
     /*
     CUANTIFICADORES : Se aplican al elemento que les precede
