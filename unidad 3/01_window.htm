@@ -49,28 +49,31 @@
 
         //location.href="http://www.cifpcarlos3.es";
 
-        document.write('<br>Protocolo de acceso al archivo:' + location.protocol)
+            document.write('<br>Protocolo de acceso al archivo:' + location.protocol)
 
-        document.writeln('<br>Lenguaje del navegador'+navigator.languages+'\n');
+            document.writeln('<br>Lenguaje del navegador'+navigator.languages+'\n');
+
+        // Acceso a la geolocalización
+
+            navigator.geolocation.getCurrentPosition(exito);
+
+            function exito(posicion){
+                 console.log(posicion);
+            }
         
-       // navigator.geolocation.getCurrentPosition(success)
+       // Almacenamiento de información en el cliente "antiguas cookies"
+    
 
+
+            localStorage.idioma = "ingles";
+            //localStorage.setItem('idioma','ingles')
+            //localStorage.removeItem("key"); //Eliminar el elemento
+            //sessionStorage.setItem('idioma','ingles'); almacena temporalmente durante esta sesion
+
+            if( localStorage.idioma == "ingles") alert("HELLO")
        //Acceso al historial
        
-        // history.back()
-
-
-
-    
-
-    
-
-    //
-
- 
-
-   
-
+        //  history.back()
     
     </script>
 </head>
