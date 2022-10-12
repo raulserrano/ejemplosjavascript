@@ -1,5 +1,5 @@
 /* 
-    Podemos cambiar los tipos de datos con parseInt, y toString
+    Podemos cambiar los tipos de datos con Number/parseInt, y String/.toString
 */
 let variable='5';
 console.log(`${variable} tipo: ${typeof(variable)}`)
