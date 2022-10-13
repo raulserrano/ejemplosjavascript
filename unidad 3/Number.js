@@ -6,9 +6,8 @@
 
 */
 
+let num = 1000;
 
-
-let num = 1;
 
 //No se recomienda en js la utilización de constructor en datos primitivos(optimización memoria)
 let num2 = new Number(2);
@@ -16,6 +15,15 @@ let num2 = new Number(2);
 //Admite notación exponencial
 let numexponencial = 1e9;
 console.log(numexponencial) //1000000000
+
+/*
+   Todos los números se guardan en 64 bits, aunque no se utiliza mucho
+   en versiones actuales de js existe un nuevo tipo bigint que permite 
+   almacenar números más grnades, añadiendole una n al final del numero
+*/
+
+let bignum = 1111n;
+console.log(typeof bignum); //bignint
 
 //Admite notación Hexadecimal (0x), binaria(0b) y octal(0o)
 
