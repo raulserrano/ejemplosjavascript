@@ -10,13 +10,13 @@
 */
 
     let fecha = new Date(2020,5,10,9);
-    console.log('Año: '+fecha.getFullYear());
-    console.log('Mes: '+fecha.getMonth());
-    console.log('Horas: '+fecha.getHours());
+    console.log('Año: '+fecha.getFullYear());//->Año: 2020
+    console.log('Mes: '+fecha.getMonth());//->Mes: 5
+    console.log('Horas: '+fecha.getHours());//->Horas: 9
 
     //modificamos con métodos set
     fecha.setHours(4);
-    console.log('Hora modificada: '+fecha.getHours());
+    console.log('Hora modificada: '+fecha.getHours());//->Hora modificada: 4
 
 
     //Internamente la variable almacena los milisegundos que han pasado
@@ -27,7 +27,7 @@
     let fechaActual = new Date();
     console.log(fechaActual.toString())
 
-    //Disponemos de métidos que hacen referencia a la hora UTC ya la local.
+    //Disponemos de métodos que hacen referencia a la hora UTC ya la local.
     console.log(fechaActual.getUTCHours());
     console.log(fechaActual.getHours());
 

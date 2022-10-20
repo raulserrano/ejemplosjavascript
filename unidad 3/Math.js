@@ -8,7 +8,8 @@ trabajar con números
 
 
 console.log("Math.PI: "+Math.PI);
-console.log("Math.SQRT: "+Math.SQRT2);
+console.log("Math.SQRT2: "+Math.SQRT2);
+
 
 
 console.log("Math.ceil(3.14): "+ Math.ceil(3.14));
