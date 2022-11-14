@@ -20,6 +20,7 @@
         /* Quitar elementos del final pop*/
         arr.pop();
         
+        /* Modificar valor de una posición concreta */
         arr2[0]=2;
         arr2[1]=4;
         arr2[2]=6;
@@ -31,14 +32,18 @@
         for ( let i=0 ; i<arr.length ; i++){   
             document.write(arr[i])
         }
-        
-        //for of recorre los valores
+         
+
+        // for of : Recorre los valores de los atributos de un objeto
+        // en particular lo podemos aplicar a un array.
         document.write('<h2>Bucle for of</h2>')
         for ( let i of arr){
             document.write(i)
 
         }
-        //for in recorre los indices
+        // for in : Recorre los atributos de un objeto, en particular al 
+        // aplicarlo arrays recorrer los indices.
+
         document.write('<h2>Bucle for in</h2>')
         for ( let i in arr){
             document.write(arr[i])
@@ -58,8 +63,6 @@
         console.log(arr)
 
        
-        
-
         //Vamos a crear un array grande para comprobar el rendimiento
         //de cada uno de los bucles.
 
@@ -74,8 +77,8 @@
         let time2=new Date();
 
         document.write('<br>Tiempo for: '+(time1-time2))
- //Calculamos el tiempo en recorrerlo for in
- time1=new Date();
+        //Calculamos el tiempo en recorrerlo for in
+        time1=new Date();
         for ( let i in arr){
            // document.write(arr[i]+'<br>')
         }
@@ -91,7 +94,6 @@
 
         document.write('<br>Tiempo for of: '+(time1-time2))
 
-    
     </script>
 </head>
 <body>
