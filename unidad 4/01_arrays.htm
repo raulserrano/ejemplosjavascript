@@ -37,9 +37,8 @@
         // for of : Recorre los valores de los atributos de un objeto
         // en particular lo podemos aplicar a un array.
         document.write('<h2>Bucle for of</h2>')
-        for ( let i of arr){
+        for ( let item of arr){
             document.write(i)
-
         }
         // for in : Recorre los atributos de un objeto, en particular al 
         // aplicarlo arrays recorrer los indices.
@@ -52,7 +51,7 @@
         //Recorrer array con forEach
 
         document.write('<h2>Bucle forEach</h2>')
-        arr.forEach((i)=>document.write(i));
+        arr.forEach((item)=>document.write(item));
 
         //Eliminar/añadir elementos intermedios
         //arr.splice(inicio[, num_elem_a_borrar, inserta_elem1, ..., inserta_elemN])
@@ -61,6 +60,22 @@
         console.log(arr);[2,6]
         arr.splice(1,0,4,5);//¿Que hace?
         console.log(arr)
+
+        //Extraer posicines desde inicio hasta fin (sin incluirlo)
+        //arr.slice(inicio[,fin])
+        arr.slice(1,2)
+
+        //Comprobar si está un elemento en el array
+        //includes: devuelve true o false si se encuentra
+        //indexOf: devuelve el índice en el que lo encuentra o -1
+        arr.includes(4)
+        arr.indexOf(4)
+
+        //split/join. Convierte cadena en array y viceversa.
+        arr=["a","b","c"]
+        let cad = arr.join()//"a,b,c"
+        cad.split(",")//["a", "b", "c"]
+
 
        
         //Vamos a crear un array grande para comprobar el rendimiento
