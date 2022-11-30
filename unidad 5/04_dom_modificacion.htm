@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODIFICACIÓN DOM: CREAR Y ELIMINAR ELEMENTOS</title>
+</head>
+<style>
+    .cuadrado {
+        width: 5em;
+        height: 5em;
+        border: 2px solid black;
+        padding: 5px;
+        margin: 1em;
+    }
+
+    .rojo {
+        background-color: red;
+    }
+</style>
+
+<body>
+
+    <div id="contenedor"></div>
+
+    <script>
+
+        // Podemos crear nodos de tipo elemento con el método
+        // createElement de document
+        //
+        // document.createElement('ETIQUETA')
+
+        let bloque = document.createElement('div');
+        bloque.className = "cuadrado"
+
+        // Tambien podemos manipulas las clases de un elemento
+        // con los métodos add y remove del objeto classList
+
+        bloque.classList.add('rojo')
+
+        // Le añadimos contenido
+
+        bloque.textContent = 'CUADRADO1 ROJO'
+
+        // Ya tenemos el nodo de tipo elemento creado, lo tenemos
+        // en memoria pero el navegador no lo renderiza por que no 
+        // lo hemos colocado en el árbol. Para ello hay muchos métodos
+        // el más habitual será append, su sintaxis es:
+        // elemento.append(nodo1[,nodo2,...,cadena1,cadena2,...])
+        // esto añadirá el elemento o elementos al final del contenido
+        // de elemento.
+
+        let contenedor = document.querySelector('#contenedor');
+        contenedor.append(bloque)
+
+
+    </script>
+
+</body>
+
+</html>
