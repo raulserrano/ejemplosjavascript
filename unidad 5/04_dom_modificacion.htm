@@ -9,8 +9,8 @@
 </head>
 <style>
     .cuadrado {
-        width: 5em;
-        height: 5em;
+        width: 6em;
+        height: 6em;
         border: 2px solid black;
         padding: 5px;
         margin: 1em;
@@ -27,6 +27,8 @@
 
     <script>
 
+        // CREACIÓN DE NODOS.
+
         // Podemos crear nodos de tipo elemento con el método
         // createElement de document
         //
@@ -42,7 +44,7 @@
 
         // Le añadimos contenido
 
-        bloque.textContent = '1'
+        bloque.textContent = 'TEXTO1 '
 
         // Ya tenemos el nodo de tipo elemento creado, lo tenemos
         // en memoria pero el navegador no lo renderiza por que no 
@@ -54,6 +56,42 @@
 
         let contenedor = document.querySelector('#contenedor');
         contenedor.append(bloque)
+        bloque.append('TEXTO2 ')
+
+        // También disponemos de un método para crear nodos de tipo texto
+        // document.createTextNode('cadena')
+
+        let texto3 = document.createTextNode('TEXTO3 ')
+        bloque.append(texto3)
+
+        // Pero esto lo pedemos hacer directamente con append
+
+        bloque.append('TEXTO4 ', 'TEXTO5 ')
+
+        // De comportamiento similar a append, pero colocando el nodo
+        // en diferente lugar tenemos los siguientes:
+
+        // elemento.prepend(nodonuevo) -> Inserta el nodo al principio de elemento.
+        // elemento.before(nodonuevo) -> Inserta el nodo antes del elemento.
+        // elemento.after(nodonuevo) -> Inserta el nodo después del elemento.
+
+        // ELIMINACIÓN DE NODOS
+
+        // elemento.remove() elimina el nodo elemento
+
+        //bloque.remove()
+
+        // Aunque existen más, con los métodos vistos podremos hacer 
+        // las operaciones de creación y eliminación de nodos.
+        // También hay otros más antiguos que si bien todavia se 
+        // pueden ver en código, ya están en desuso, por ejemplo:
+
+        // elemento.appendChild(nodo) añade el nodo al final de elemento
+        // parentNode.removeChild(nodo) elimina nodo de parentNode
+
+
+
+        
 
 
     </script>
