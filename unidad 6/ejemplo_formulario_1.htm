@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejemplos capturas eventos formularios</title>
     <style>
-        
+
         #contenedor {
             width: 50%;
             margin: auto;
@@ -42,12 +42,19 @@
             let prov = document.querySelector('#prov')
             prov.addEventListener('change', fvalor)
 
-            //Capturamos el evento change de un select
+            //Capturamos el evento change de los echecked
             //y mostramos su valor
             let deportes = document.querySelector('#deportes')
             deportes.addEventListener('change', faficiones)
             let cine = document.querySelector('#cine')
             cine.addEventListener('change', faficiones)
+
+            //Capturamos el evento click del botón de radio
+            //y mostramos su valor
+            let hombre = document.querySelector('#hombre')
+            hombre.addEventListener('change', fsexo)
+            let mujer = document.querySelector('#mujer')
+            mujer.addEventListener('change', fsexo)
 
             //Creamos una funcion que muestra el atributo valor
             //de el elemento que recibe el evento
@@ -66,6 +73,12 @@
                    
                 }
 
+            }
+
+            function fsexo(){
+                if(this.checked){
+                    resultado.textContent=this.value
+                }
             }
         }
 
@@ -90,7 +103,7 @@
                     <option value="MU">MURCIA</option>
                     <option value="MA">MALAGA</option>
                     <option value="SE">SEVILLA</option>
-                    <option value="AN">LUGO</option>
+                    <option value="LU">LUGO</option>
                     <option value="GA">GALICIA</option>
                 </select>
             </fieldset>
@@ -100,8 +113,15 @@
                 <input id="deportes" type="checkbox" value="deportes">
                 <label for="Cine">Cine:</label>
                 <input id="cine" type="checkbox" value="cine">
-
             </fieldset>
+
+            <fieldset><legend>Sexo: (Obtener valor de botones radio)</legend>
+                <label for="hombre">hombre:</label>
+                <input id="hombre" type="radio" value="hombre" name="sexo">
+                <label for="mujer">mujer:</label>
+                <input id="mujer" type="radio" value="mujer" name="sexo">
+            </fieldset>
+
             <fieldset>
                 <legend>Resultado</legend>
                 <div id="resultado"></div>
