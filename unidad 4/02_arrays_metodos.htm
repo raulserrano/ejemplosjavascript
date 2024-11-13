@@ -11,6 +11,9 @@
         let arr2 = [
             {nombre:'manzanas',precio:'5'},
             {nombre:'peras',precio:'8'},
+            {nombre:'peras',precio:'8'},
+            {nombre:'aguacate',precio:'12'},
+            {nombre:'melon',precio:'9'},
             {nombre:'platanos',precio:'7'}
         ];
         let resultado;
@@ -29,21 +32,42 @@
         resultado = arr1.filter((elemento)=>elemento.charAt(0)=='a'); 
         console.log(resultado) // ['ana','adolfo']
 
-         // map: Aplica la funcción 
+         // map: Aplica la función 
 
-        resultado = arr1.map((elemento)=>{elemento.length);
+        resultado = arr1.forEach((elemento)=>elemento.length);
         console.log(resultado) //[6,4,5,4,3,6]
+        
 
 
-         // map: Aplica la funcción 
+         // map: Aplica la función 
 
         resultado = arr1.map((elemento)=>elemento.length>3);
         console.log(resultado) //[true,true,true,true,false,true]
 
-        // sort:
+        // sort: Sin parametros ordena un array por orden lexicográfico
+        console.log(arr1.sort());
 
+        // sort admite una función como parámetro que indique el orden
 
+        resultado = arr2.sort((a,b)=>{
+            return a.precio-b.precio
+        })
+        console.log(resultado);// Array ordenado por el precio
 
+        // every : true si todos los elementos del array cumplen
+
+        resultado = arr2.every((e)=>{
+            return e.precio<10
+        })
+        console.log(resultado); //false
+        
+        
+        // some : true si al menos un elemento del array cumple
+
+        resultado = arr2.some((e)=>{
+            return e.precio<10
+        })
+        console.log(resultado); //true
     
     </script>
 </head>
