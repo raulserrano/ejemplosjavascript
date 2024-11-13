@@ -15,6 +15,7 @@
         }
 
         class Cpersona{
+       
             constructor(nombre){
                 this.nombre=nombre;
                 this.edad=0;
@@ -27,6 +28,7 @@
 
         let p1= new Fpersona('raul');
         p1.cumplir()
+        console.log(p1);
 
         console.log(p1.nombre +' tiene: '+p1.edad);
 
@@ -35,7 +37,8 @@
         p2.cumplir();  
         console.log(p2.nombre +' tiene: '+p2.edad);
 
-        console.log(typeof(Fpersona))
+        console.log(typeof(Fpersona)) //function
+        console.log(typeof(Cpersona)) //function
        
         console.log(p2)
         let p3=new Cpersona('pedro')
@@ -45,6 +48,11 @@
         p4=new Cpersona(' persona 4')
         p4.apellido='otro'
         console.log(p4.apellido)
+
+        // Como vemos tenemos acceso directo a los atributos
+        // de los objetos de la clase. Se pueden declarar atributos privados¿?
+
+        
     </script>
 </head>
 <body>
