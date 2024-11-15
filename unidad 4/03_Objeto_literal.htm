@@ -14,7 +14,7 @@
 
         console.log(persona);//{nombre: "Jose", apellido: "Perez", edad: 5}
         persona.edad++;
-        console.log(persona);//{nombre: "Jose", apellido: "Perez", edad: 6}
+        console.log(persona.edad);//{nombre: "Jose", apellido: "Perez", edad: 6}
 
         //Los atributos pueden ser de cualquier naturaleza
         let curso = {
@@ -22,12 +22,28 @@
             alumnos:['Sergio','Jose','Ana','Maria']
         }
 
-        console.log(curso);//{nombre: "2DAW", alumnos: Array(4)}
+        console.log(curso.alumnos);//{nombre: "2DAW", alumnos: Array(4)}
 
-        //En definitiva podemos ver los objetos literales como un conjunto
-        //de variables asociado un espacio de nombres.
+        /*
+           Propiedades calculadas:
+           En ocasiones puede ser interesante/necesario acceder a las
+           propiedades de un objeto a través de una variable, es decir tenemos
+           el nombre de la propiedad almacenada en una variable y queremos acceder
+           a su valor. En este caso no podemos acceder al valor con la sintaxis
+           habitual de poner un punto. Si no que tenemos que acceder a través de 
+           corchetes.
+        */
 
+        let variable = 'nombre';
+        console.log(curso.variable); // ¡¡ ERROR !!
+        console.log(curso[variable]); // 2DAW
 
+        /*
+          Otro recurso que puede ser util relacionado con los atributos de 
+          un objeto es método keys del objeto Objet que recibe como parámetro
+          un objeto y devuelve un array con los nombres de las claves de objeto.
+        */
+        console.log(Object.keys(curso)); // ['nombre','curso']
         
     </script>
 </head>
