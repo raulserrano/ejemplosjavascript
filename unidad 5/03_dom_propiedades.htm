@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SELECCIONAR ELEMENTOS</title>
+    <title>PROPIEDADES DE LOS ELEMENTOS</title>
     <style>
-        .rojo{
-            background-color: red;
+        img {
+            width: 30em;
+            border: 2px solid black;
         }
 
-        .azul {
-            background-color: blue;
-        }
     </style>
 </head>
 <body>
-    <h1>Ejemplo DOM: Seleccionar elementos</h1>
+    <h1 data-titulo="PRUEBA">Ejemplo DOM: Seleccionar elementos</h1>
 
-    <div id='bloque1'>
-        Bloque de prueba para el DOM
-        <p id='t1'>Texto 1</p>
-        <p id='t2' class='rojo'>Texto 2</p>
-    </div>
+    <img id='imagen1' src="http://raulserranoweb.es/tienda/imagenes_art/1">
+
+    <hr>
+
+    <a href="https://cifpcarlos3.es" target="_blank">CIFP CARLOS 3</a>
+
     <script>
          // Todos los nodos de tipo elemento tienen unas propiedades comunes,
          // y otras propias del elemento (imagen, enlace,...)
@@ -30,20 +29,32 @@
          //     tagName, innerHTML, outerHTML, textContent
 
          // Además de propiedades comunes cada elemento tendrá las suyas propias
-         // imagen: src
-         // enlace: href
-         // input: value
+         //     imagen: src
+         //     enlace: href
+         //     input: value
 
          // Cuando el árbol DOM se genera, las mayoria de los atributos html
-         // se convierten en atributos del DOM
+         // se convierten en atributos del DOM (ej.- class NO -> className)
+         
+         // Si modificamos propiedades de los elementos, el navegador renderizará
+         // el DOM Actualizado.
+         let imagen1 = document.getElementById('imagen1');
+         imagen1.src='http://raulserranoweb.es/tienda/imagenes_art/2';
 
-         //let imagen1 = document.getElementById('imagen1');
-         //imagen1.src='imagen2.png';
+         let enlace = document.querySelector('a')
+         enlace.href='http://www.llegarasalto.com'
+         // No solo modificar también puedo asignar valor a un atributo que no tuviera
+         enlace.title='WEB DE FP DE MURCIA'
+         enlace.textContent='LLEGARASALTO'
 
-         // También podemos añadir nuestros propios atributos a los objetos
+         // Si añadimos nuestros propios atributos a los objetos, mejor los añadimos
+         // al atibuto dataset del objeto.(dataset: objeto que contiene los atributos data-)
+
          let titulo = document.querySelector('h1');
-         titulo.miproiedad=1;
+         titulo.dataset.mipropiedad=1;
          console.dir(titulo)
+         console.dir(titulo.dataset.mipropiedad)
+         
 
      
 
