@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENTOS DELEGAR CAPTURA</title>
+    <style>
+      .cuadrado {
+        background-color: blueviolet;
+        color: white;
+        width: 5em;
+        height: 5em;
+        padding: 1em;
+        margin: 0.5em;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <header id='cabecera'></header>
+
+    <section id='contenedor'></section>
+
+    <footer id="pie"></footer>
+
+    <script>
+      // Creamos un conjunto de elementos dentro del contenedor, el objetivo es que cada vez que hagan
+      // click en uno de ellos se escriba el contenido en el pie de la página
+      let contenedor = document.createElement("div");
+
+      document.body.append(contenedor);
+
+      for (let i = 0; i < 10; i++) {
+        let cuadrado = document.createElement("div");
+        cuadrado.classList.add("cuadrado");
+        cuadrado.textContent = i + 1;
+        contenedor.append(cuadrado);
+        // Una opción seria asignar elementos a cada cuadrado (ejercicio)
+      }
+
+      // Otra opción seria delegar la captura de todos en el contenedor (ejercicio)
+
+      //Ejercicio: añadir un botón a la cabecera que borre el pie.
+
+
+    </script>
+  </body>
+</html>
