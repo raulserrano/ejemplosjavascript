@@ -11,6 +11,13 @@
             text-align: center;
         }
 
+        .cuadradop {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+
+
         .rojo {
             background-color: red;
         }
@@ -30,7 +37,7 @@
 
         // Los eventos son "cosas que ocurren", durante la ejecución de una aplicación web
 
-        //Veremos que eventos de ratón, teclado,.. haremos los primeros ejemplos con 
+        // Veremos que hay, eventos de ratón, teclado, de la página.. haremos los primeros ejemplos con 
         // el eveto 'click' de ratón
 
         // Para poder reaccionar a eventos tenemos que "capturar" el evento
@@ -69,13 +76,21 @@
             alert(this.innerText); //¿Por qué muestra alert 2 veces?
         })                         // Esta es una ventaja respecto a las anteriores formas
 
+
+
+        //Ejemplo de evento de teclado
+        window.addEventListener('keydown',function(){
+           alert('HAS PULSADO UNA TECLA')
+        })
+
         
         //OBJETO EVENT
 
         // A veces necesitaremos obtener información del sobre el propi evento
+        // Ejemplo: ¿Qué teclas han pulsado?
         // Ejemplo: ¿En que coordenadas ha hecho click?
         // Ponemos un parámetro a la función que captura el evento (usualmente e o event)
-        // y éste parámetro contiene la información dentro de la función.
+        // y éste parámetro contiene la información del evento dentro de la función.
 
         // Creo un nuevo elemento para los ejemplos.
         let cuadrado2 = document.createElement('div');
@@ -91,9 +106,29 @@
             alert('Contenido del elemento: '+event.target.innerText);
         })
 
+        // Ejercicio: ¿Cómo saber que tecla han pulsado en el ejemplo de keydown?
+
+        // PROPAGACIÓN DE EVENTOS
+
+        //  Los eventos recibidos por un elemento se propagan de un elemento hacia sus ancestros (padre,..)
+
+        //  Ejemplo: vamos a crear dos cuadros anidados.
+        let cuadradop = document.createElement('div');
+        cuadrado1.append(cuadradop);
+        cuadradop.append('CUADRADO P');
+        cuadradop.classList.add('azul','cuadradop');
+        cuadradop.addEventListener('click',function(){
+            alert('cuadrado P')
+        }) 
+
+        // Si hago click en cuadradop, decaptura el click en cuadradop y en cuadrado1 ¿Pork qué?
+
+        // UTILIZACIÓN DE LA CAPTURA DE EVENTOS PARA DELEGAR LA CAPTURA DE EVENTOS (Realizar un ejemplo)
 
 
-    </script
+
+
+    </script>
 
     
 </body>
