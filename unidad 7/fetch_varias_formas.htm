@@ -17,8 +17,11 @@
         // Solicitamos 5 usuarios al servidor https://randomuser.me/api
 
         let url ='https://randomuser.me/api/?results=5'
+
+
+
         
-        //Con xmlhttpRequest
+        //Con xmlhttpRequest: Objeto que se utilizaba antes de la aparición de fetch
         let conexion = new XMLHttpRequest();
         conexion.open('GET',url)
         conexion.send();
