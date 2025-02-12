@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitud de datos on Fetch con parámetros POST</title>
+    <style>
+      #articulos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      }
+
+      img {
+        width: 6rem;
+        height: 6rem;
+      }
+
+      article {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario" enctype="multipart/form-data" method="post">
+      <input
+        type="text"
+        name="codigo"
+        id="codigo"
+        placeholder="Código"
+        required
+      />
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Nombre"
+        required
+      />
+      <input
+        type="text"
+        name="descripcion"
+        id="descripcion"
+        placeholder="Descripción"
+        required
+      />
+      <input
+        type="number"
+        name="precio"
+        id="precio"
+        placeholder="Precio"
+        required
+        step="0.01"
+      />
+      <input type="file" name="imagen" id="imagen" accept="image/*" required />
+      <button type="submit">Agregar</button>
+    </form>
+    <hr />
+    <section id="articulos"></section>
+    <script>
+          // Ya hemos visto cómo realizar solicitudes por GET, vemos ahora los
+          // métodos POST, habitualmente utilizado para insertar datos, y DELETE
+          // para eliminar datos.
+
+
+          // En el caso de envío por POST, los datos no se adjuntan a la url
+          // van en el cuerpo del mensaje, fetch admite un segundo parámetro
+          // que es un objeto en el que podemos modificar diferentes opciones
+          // entre ellas el body para adjuntar los parámetros
+
+          // Para el ejemplo vamos a utilizar una API cuya documentación podéis encontrar
+          // en: https://www.raulserranoweb.es/apiarticulos/documentacion.htm
+
+          // En primer lugar vamos a hace una petición GET para mostrar los datos que hay en la base de datos
+
+          const API_URL = 'https://www.raulserranoweb.es/apiarticulos/api.php';
+          const TOKEN = 'TOKEN_DWEC';
+          const articulos = document.querySelector('#articulos');
+
+          // Mostrar datos, solicitamos por GET
+
+          cargarArticulos()
+
+          // Insertamos un articulo cuando se envía un formulario, solicitamos POST
+
+          let formulario = document.getElementById('formulario')
+          formulario.addEventListener('submit',insertarArticulo)
+
+          // Eliminar articulos, DELETE (normalmente parámetro en la url del mensaje)
+
+                // Ejercicio: añade un botón a cada articulo que permita eliminarlo al pulsarlo
+
+          // Funciones
+
+          function cargarArticulos(){
+
+              // En este caso realizmos una petición por GET, con la única difencia con respecto a
+              // lo que habíamos visto de que tenemos un token de autenticación
+
+              fetch(API_URL+'?token='+TOKEN)
+                  .then(response => response.json())
+                  .then(datos=>mostrarArticulos(datos))
+          }
+
+          function insertarArticulo(e){
+
+                e.preventDefault();
+                let formData = new FormData(formulario);
+                // Enviar solicitud POST con los datos y el archivo
+
+                fetch(API_URL+'?token='+TOKEN,{
+                    method:'POST',  // Al no ser el métido por defecto hay que indicarlo
+                    body:formData
+                })
+                .then(response=>response.json())
+                .then(data=>{
+                    console.log(data);
+                    alert('el artículo se ha insertado correctamente')
+                    cargarArticulos();
+                    form.reset();
+                })
+
+            }
+
+
+
+          function mostrarArticulos(datos){
+
+              articulos.innerHTML=''
+
+              datos.forEach(dato => {
+
+                  let articulo = document.createElement('article')
+
+                  let nombre = document.createElement('h3')
+                  nombre.textContent=dato.nombre
+                  let precio = document.createElement('h3')
+                  precio.textContent=dato.precio
+                  let imagen = document.createElement('img')
+                  imagen.src="https://www.raulserranoweb.es/apiarticulos/"+dato.imagen
+
+                  articulos.append(articulo)
+                  articulo.append(imagen)
+                  articulo.append(nombre)
+                  articulo.append(precio)
+
+              });
+          }
+    </script>
+  </body>
+</html>
