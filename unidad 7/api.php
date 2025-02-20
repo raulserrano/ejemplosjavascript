@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Content-Type: application/json");
 require 'config.php'; // Archivo con conexión a la base de datos
 
@@ -100,11 +102,27 @@ switch ($method) {
     
     case 'DELETE':
         // Para DELETE se mantiene el uso de JSON en el cuerpo de la solicitud
-        $input = json_decode(file_get_contents("php://input"), true);
+     /*   $input = json_decode(file_get_contents("php://input"), true);
         $codigo = $input['codigo'];
         $stmt = $pdo->prepare("DELETE FROM articulos WHERE codigo=?");
         $stmt->execute([$codigo]);
-        echo json_encode(["message" => "Artículo eliminado"]);
+        echo json_encode(["message" => "Artículo eliminado"]); */
+
+        // CÓDIGO DE ARTÍCULO EN LA URL
+
+        if (isset($_GET['codigo'])) {
+       	 $codigo = $_GET['codigo'];
+
+    	    // Preparar y ejecutar la consulta
+    	    $stmt = $pdo->prepare("DELETE FROM articulos WHERE codigo = ?");
+     	   $stmt->execute([$codigo]);
+
+        	echo json_encode(["message" => "Artículo eliminado"]);
+    	} else {
+       	 // Respuesta en caso de que no se proporcione un código
+       	 http_response_code(400); // Código de error Bad Request
+        	echo json_encode(["error" => "Código de artículo no proporcionado"]);
+   	    }
         break;
     
     default:
