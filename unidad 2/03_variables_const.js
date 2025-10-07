@@ -12,6 +12,6 @@ centro='otro'; //error : Assignment to constant variable.
 
 //Ámbito bloques
 if (true){
-    let profe='raul';
+    const profe='raul';
 }
 console.log(profe); // error : profe is not defined

@@ -6,8 +6,11 @@ let centro='cifpcarlos3';
 //let centro='raul' -> error
 
 if (true){
+
     let profe='raul';
+
     console.log(centro)
+    
 }
 
 console.log(profe); //error -> profe is not defined

@@ -4,15 +4,16 @@ o en el ámbito de las funciones. Permite redeclarar variables.
 */
 var nombre='cifpcarlos3';
 
-var f = function(){
-    var profe='raul';
+function prueba(){
+
     console.log(nombre)
+    
+    var profe='raul';
 }
 
-f(); //OK
+prueba(); //OK
 
 console.log(profe); //error
-
 
 
 
