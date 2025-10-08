@@ -4,13 +4,16 @@ o en el ámbito de los bloques {}. No permite cambiar su valor
 */
 const centro='cifpcarlos3';
 
-// No permite redeclarar
+/* No permite redeclarar */
+
 const centro='raul'; // error : Identifier 'centro' has already been declared
 
-// No permite cambiar valor
+/* No permite cambiar valor */
+
 centro='otro'; //error : Assignment to constant variable.
 
-//Ámbito bloques
+/* Ámbito bloques */
+
 if (true){
     const profe='raul';
 }

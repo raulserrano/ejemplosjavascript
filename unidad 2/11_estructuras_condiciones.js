@@ -9,8 +9,11 @@ if ( 10 > 5) console.log('La condición es cierta');
 if ( 10 < 5) console.log('La condición es cierta');
 else console.log('La condición es falsa');
 
-//Si ejecutamos más de una instrucción las ponemos en un bloque de contenido {}
-let edad=20;
+/*
+  Si ejecutamos más de una instrucción las ponemos en un bloque de contenido {}
+*/
+
+ let edad=20;
 if ( edad >= 18 ){
     console.log('eres mayor de edad');
     console.log('ya puedes conducir');
