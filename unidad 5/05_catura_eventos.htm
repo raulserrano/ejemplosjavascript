@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAPTURA DE EVENTOS</title>
+    <style>
+      .cuadrado {
+        width: 150px;
+        height: 150px;
+        margin: 50px;
+        padding: 50px;
+        border: 5px solid black;
+        border-radius: 5px;
+        float: left;
+    }
+    
+    .cuadradop {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        padding: 5px;
+        border: 3px solid black;
+        border-radius: 3px;
+        float:left;
+      }
+      .verde {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cuadrado1" class="cuadrado">CUADRADO 1</div>
+    <div id="cuadrado2" class="cuadrado">CUADRADO 2</div>
+
+    <script>
+      // Anque en javascript hay diferentes formas de capturar eventos, utilizaremos
+      // addEventListener que es la más actual y recomendable
+
+      let cuadrado1 = document.querySelector("#cuadrado1");
+      let cuadrado2 = document.querySelector("#cuadrado2");
+
+      /*
+        cuadrado1.addEventListener('click', cambiacolor1)
+        cuadrado2.addEventListener('click', cambiacolor2)
+
+        function cambiacolor1(){
+            cuadrado1.classList.add('verde')
+        }
+        function cambiacolor2(){
+            cuadrado2.classList.toggle('verde')
+        }
+        */
+
+      /*
+           Esta situación en la que capturamos un evento a dos elmentos
+           similares y les aplicamos la misma función, es muy habitual 
+           (filas regitros, botones de eliminar, etc..)
+
+           ¿Cómo podemos saber que elemento ha generado la captura del evento
+           dentro de la función para poder aplicar la misma función a todos?
+
+           Podemos obtener información del evento, pasando un parámetro a la función
+           que nos permitirá obtener información sobre el evento.
+
+           Este parámetro se convertirá en un objeto con diferentes atributos
+           que nos permiten extraer información del eventos, veremos más detalles
+           en la siguiente unidad, pero de momento vamos a utiliza la propiedad 
+           target que nos indica quién recibió el evento
+
+           Ejemplo
+        */
+      cuadrado1.addEventListener("click", cambiacolor);
+      cuadrado2.addEventListener("click", cambiacolor);
+
+      function cambiacolor(evento) {
+        evento.target.classList.toggle("verde");
+      }
+
+      /*
+        Esto nos permite realizar una tarea muy habitual, que es 
+        capturar eventos que se generan de forma dinámica
+
+        Ejemplo
+      */
+
+        for(let i=0;i<100;i++){
+            let cuadradop = document.createElement('div')
+            cuadradop.classList.add('cuadradop')
+            document.body.append(cuadradop)
+            cuadradop.addEventListener('click',cambiacolor)
+        }
+      
+    </script>
+  </body>
+</html>
