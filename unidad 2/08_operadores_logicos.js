@@ -15,3 +15,10 @@ console.log(6 < 5 || 1 > 2) // false
 
 let v = !(2 > 1);
 console.log(v); //false
+
+/*
+    No usar || para asignar valores a variables.
+    En su luga utilizar ??
+*/
+const v1 = 6 < 5 || 1 > 2
+console.log(v1);

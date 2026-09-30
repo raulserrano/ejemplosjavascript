@@ -7,7 +7,7 @@ console.log(`${variable} tipo: ${typeof(variable)}`)
 let variable2 = parseInt(variable);   //Es un método de window
 console.log(`${variable2} tipo: ${typeof(variable2)}`)
 
-let variable3 = variable2.toString(); //Es un método del objeto
+let variable3 = String(variable2); //Es un método del objeto
 console.log(`${variable3} tipo: ${typeof(variable3)}`)
 /*
    El único tipo de datos numerico es number, aún así podemos 

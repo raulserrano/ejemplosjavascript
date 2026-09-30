@@ -36,4 +36,11 @@ switch (letra) {
        
 }
 
+// Operador ternario ? :
+// condicion ? valorSiVerdadero : valorSiFalso
+
+const num = 5
+
+num > 18 ? console.log('mayor de edad '):console.log('menor de edad');
+
 
